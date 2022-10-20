@@ -24,8 +24,7 @@ import java.util.Base64;
 import java.util.Comparator;
 import java.util.List;
 
-import static me.JD79317.discloud.Util.displayTray;
-import static me.JD79317.discloud.Util.getCipher;
+import static me.JD79317.discloud.Util.*;
 
 public final class FileDownloaderFrame extends JFrame {
     private final File selectedFile;
@@ -135,7 +134,7 @@ public final class FileDownloaderFrame extends JFrame {
                 progressBar.setValue(progressBar.getValue() + 1);
             }
         } catch (IOException exception) {
-            exception.printStackTrace();
+            reportError(exception, "Failed to download files from discord cdn. (Does the channel still exist?)");
         }
     }
 }
